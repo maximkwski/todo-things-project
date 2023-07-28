@@ -7,7 +7,8 @@ module.exports = {
   devtool: 'inline-source-map',
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'to-do-things',
+      template: './templates/index.html', // Change the template path to the new location
+      filename: 'index.html', // Set the output filename explicitly
     }),
   ],
   output: {

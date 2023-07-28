@@ -1,3 +1,39 @@
-.hello {
-    color: red;
+@font-face {
+    font-family: roboto;
+    src: url(./fonts/Roboto-Regular.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    grid-template-columns: minmax(min-content, 1fr);
+    grid-template-rows: max-content 4fr min-content;
+
+    height: 100vh;
+    font-family: roboto, sans-serif;
+}
+
+/*HEADER*/
+header {
+    background-color: bisque;
+}
+
+#content {
+    background-color: rgb(207, 248, 235);
+}
+
+
+/*FOOTER*/
+footer {
+    background-color: rgb(199, 196, 191)
+}
+
+footer img {
+    width: 15px;
+    margin: 0 5px;
 }
