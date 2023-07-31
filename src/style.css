@@ -1,6 +1,6 @@
 @font-face {
-    font-family: roboto;
-    src: url(./fonts/Roboto-Regular.ttf);
+    font-family: montserrat;
+    src: url(./fonts/Montserrat-VariableFont_wght.ttf);
 }
 
 * {
@@ -15,7 +15,7 @@ body {
     grid-template-rows: max-content 4fr min-content;
 
     height: 100vh;
-    font-family: roboto, sans-serif;
+    font-family: montserrat, sans-serif;
 }
 
 /*HEADER*/
@@ -29,7 +29,7 @@ aside {
     background-color: rgb(189, 246, 227);
 }
 
-#content {
+#main {
     display: grid;
     grid-template-columns: minmax(min-content, 1fr) 3fr;
 }

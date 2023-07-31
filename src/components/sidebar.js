@@ -1,5 +1,5 @@
 export default function sidebar() {
-    const contentDiv = document.getElementById('content') //main div
+    const contentDiv = document.getElementById('main') //main div
 
     /*NAV MENU*/
 
