@@ -8,22 +8,21 @@ sidebar();
 footer();
 
 const contentDiv = document.getElementById('content') //main div
-/*NAV MENU*/
 
-const sidebarElement = document.createElement('aside');
-const navMenu = document.createElement('ul');
-const li_default = document.createElement('li');
-li_default.textContent = "Default List";
-const li_projects = document.createElement('li');
-li_projects.textContent = "My Projects";
-const li_notes = document.createElement('li');
-li_notes.textContent = "Quick Notes";
-navMenu.appendChild(li_default);
-navMenu.appendChild(li_projects);
-navMenu.appendChild(li_notes);
-sidebarElement.appendChild(navMenu);
+const greetingElement = document.createElement('section'); // greeting element
+greetingElement.classList.add('greeting');
+const greeting_h2 = document.createElement('h2');
+greeting_h2.classList.add('title');
+greeting_h2.innerHTML = "Greetings, ";
+const greeting_input = document.createElement('input');
+greeting_input.type = 'text';
+greeting_input.id = 'name';
+greeting_input.placeholder = 'Name here';
+greeting_h2.innerHTML += greeting_input;
+greetingElement.appendChild(greeting_h2);
+contentDiv.appendChild(greetingElement);
 
-contentDiv.appendChild(sidebarElement);
+
 
 /* DEFAULT LIST DIV*/
 const defaultList = document.createElement('div');
