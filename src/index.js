@@ -26,6 +26,8 @@ greeting_h2.appendChild(greeting_input);
 greetingElement.appendChild(greeting_h2);
 defaultList.appendChild(greetingElement); // add greeting elem
 
+
+//FORM
 const createToDoElement = document.createElement('section');
 createToDoElement.classList.add('create-todo');
 const createToDoElement_h3 = document.createElement('h3');
@@ -98,77 +100,121 @@ const todoList_div = document.createElement('div');
 todoList_div.classList.add('list');
 todoList_div.id = 'todo-list';
 
-const todoItem = document.createElement('div'); // TODO ITEM
-todoItem.classList.add('todo-item');
 
-const todoItem_label = document.createElement('label');
-const todoItem_checkbox = document.createElement('input');
-todoItem_checkbox.type = 'checkbox';
-const todoItem_span = document.createElement('span');
-todoItem_span.class = 'bubble';
-todoItem_span.class = 'business';
-todoItem_label.appendChild(todoItem_checkbox);
-todoItem_label.appendChild(todoItem_span);
-
-const todoContent = document.createElement('div'); //TODO ITEM CONTENT
-todoContent.classList.add('todo-content');
-const todoContent_input = document.createElement('input');
-todoContent_input.type = 'text';
-todoContent_input.value = 'Make a video';
-todoContent_input.setAttribute('readonly', true);
-todoContent.appendChild(todoContent_input);
-
-const todoItem_actions = document.createElement('div'); //ACTION BUTTONS
-todoItem_actions.classList.add('actions');
-const todo_edit = document.createElement('button');
-todo_edit.classList.add('edit');
-todo_edit.textContent = 'Edit'
-const todo_delete = document.createElement('button');
-todo_delete.classList.add('delete');
-todo_delete.textContent = 'Delete';
-todoItem_actions.appendChild(todo_edit);
-todoItem_actions.appendChild(todo_delete);
-
-todoItem.appendChild(todoItem_label);
-todoItem.appendChild(todoContent);
-todoItem.appendChild(todoItem_actions);
-
-todoList_div.appendChild(todoItem);
 todoListElement.appendChild(todoList_div);
 defaultList.appendChild(todoListElement);
 contentDiv.appendChild(defaultList); //add default list to main div
 
-// const todoInput = document.createElement('input'); //todo input
-// todoInput.id = "toDoInput";
-// todoInput.type = "text";
-// todoInput.placeholder = "Add a new task";
+let todos;
+window.addEventListener('load', () => {
+    todos = JSON.parse(localStorage.getItem('todos')) || [];
+    const nameInput = document.querySelector('#name');
+    const newTodoForm = document.querySelector('#new-todo-form');
 
-// const addButton = document.createElement('button'); //add button
-// addButton.id = "addButton";
-// addButton.textContent = "Add";
+    const username = localStorage.getItem('username') || '';
+    nameInput.value = username;
 
-// const todoList = document.createElement('ul'); // create to do list
-// todoList.id = "todoList";
+    nameInput.addEventListener('change', e => {
+        localStorage.setItem('username', e.target.value);
+    })
 
-// defaultList.appendChild(todoList);
-// defaultList.appendChild(todoInput);
-// defaultList.appendChild(addButton);
+    newTodoForm.addEventListener('submit', e => {
+        e.preventDefault();
 
-// //add to do item to the list
-// addButton.addEventListener('click', () => {
-//     const todoText = todoInput.value.trim();
-//     if (todoText !== '') {
-//       const listItem = document.createElement('li');
-//       listItem.classList.add = 'todo-item';
-//       listItem.textContent = todoText;
-//       todoList.appendChild(listItem);
-//       todoInput.value = '';
-//     }
-//   });
-  
-//   todoInput.addEventListener('keypress', (event) => {
-//     if (event.key === 'Enter') {
-//       addButton.click();
-//     }
-//   });
+        const todo = {
+            content: e.target.elements.content.value,
+            category: e.target.elements.category.value,
+            done: false,
+            createdAt: new Date().getTime()
+
+        }
+
+        todos.push(todo);
+        localStorage.setItem('todos', JSON.stringify(todos));
+
+        e.target.reset();
+        displayToDos();
+    })
+    displayToDos();
+})
+
+function displayToDos() {
+    const todoList = document.querySelector('#todo-list');
+    todoList.innerHTML = '';
+
+    todos.forEach(todo => {
+        const todoItem = document.createElement('div'); // TODO ITEM
+        todoItem.classList.add('todo-item');
+
+        const label = document.createElement('label');
+        const input = document.createElement('input');
+        input.type = 'checkbox';
+        input.checked = todo.done;
+        const span = document.createElement('span');
+        span.classList.add('bubble');
+    
+        if (todo.category == 'personal') {
+            span.classList.add('personal');
+        } else {
+            span.classList.add('business');
+        }
+
+        label.appendChild(input);
+        label.appendChild(span);
+
+        const content = document.createElement('div'); //TODO ITEM CONTENT
+        content.classList.add('todo-content');
+        const content_input = document.createElement('input');
+        content_input.type = 'text';
+        content_input.value = `${todo.content}`;
+        content_input.setAttribute('readonly', true);
+        content.appendChild(content_input);
+
+        const actions = document.createElement('div'); //ACTION BUTTONS
+        actions.classList.add('actions');
+        const edit = document.createElement('button');
+        edit.classList.add('edit');
+        edit.textContent = 'Edit'
+        const deleteButton = document.createElement('button');
+        deleteButton.classList.add('delete');
+        deleteButton.textContent = 'Delete';
+        actions.appendChild(edit);
+        actions.appendChild(deleteButton);
+
+        todoItem.appendChild(label);
+        todoItem.appendChild(content);
+        todoItem.appendChild(actions);
+
+        todoList.appendChild(todoItem);
+
+        if (todo.done) {
+            todoItem.classList.add('done');
+        }
+
+        input.addEventListener('click', e => {
+            todo.done = e.target.checked;
+            localStorage.setItem('todos', JSON.stringify(todos));
+
+            if (todo.done) {
+                todoItem.classList.add('done');
+            } else {
+                todoItem.classList.remove('done');
+            }
+            displayToDos();
+        })
+
+        edit.addEventListener('click', e => {
+            const input  = content.querySelector('input');
+            input.removeAttribute('readonly');
+            input.focus();
+            input.addEventListener('blur', e => {
+                input.setAttribute('readonly', true);
+                todo.content = e.target.value;
+                localStorage.setItem('todos', JSON.stringify(todos));
+                displayToDos();
+            })
+        })
+    })
+
+}
 
