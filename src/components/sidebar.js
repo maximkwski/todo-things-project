@@ -4,6 +4,9 @@ export default function sidebar() {
     /*NAV MENU*/
 
     const sidebarElement = document.createElement('aside');
+    const header_h1 = document.createElement('h1');
+    header_h1.textContent = "To-Do-Things";
+    sidebarElement.appendChild(header_h1);
     const navMenu = document.createElement('ul');
     const li_default = document.createElement('li');
     li_default.textContent = "Default List";
@@ -15,6 +18,12 @@ export default function sidebar() {
     navMenu.appendChild(li_projects);
     navMenu.appendChild(li_notes);
     sidebarElement.appendChild(navMenu);
+
+    const addToDo = document.createElement('button');
+    addToDo.classList.add('add-todo');
+    addToDo.type = 'button';
+    addToDo.textContent = 'ADD';
+    sidebarElement.appendChild(addToDo);
 
     contentDiv.appendChild(sidebarElement);
 
