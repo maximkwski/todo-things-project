@@ -20,7 +20,7 @@ export default function sidebar() {
     sidebarElement.appendChild(navMenu);
 
     const addToDo = document.createElement('button');
-    addToDo.classList.add('add-todo');
+    addToDo.id = 'add-todo';
     addToDo.type = 'button';
     addToDo.textContent = 'ADD';
     sidebarElement.appendChild(addToDo);

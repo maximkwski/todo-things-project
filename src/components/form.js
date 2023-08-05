@@ -1,5 +1,9 @@
+import { todos, saveTodos, getTodos, addTodo, removeTodo, clearTodos } from './todos';
+import { displayToDos } from './displayToDo';
+
 export default function form() {
-    const contentDiv = document.getElementById('main') //main div
+    // const contentDiv = document.getElementById('main') //main div
+    const defaultList = document.getElementById('default-list');
 
     //FORM
     const createToDoElement = document.createElement('section');
@@ -62,5 +66,23 @@ export default function form() {
     todoForm.appendChild(submit_btn); // add submit btn
 
     createToDoElement.appendChild(todoForm);
-    contentDiv.appendChild(createToDoElement); // add create todo item 
+    defaultList.appendChild(createToDoElement); // add create todo item 
+
+
+    todoForm.addEventListener('submit', e => {
+        e.preventDefault();
+
+        const todo = {
+            content: e.target.elements.content.value,
+            category: e.target.elements.category.value,
+            done: false,
+            createdAt: new Date().getTime()
+
+        }
+
+        addTodo(todo);
+
+        e.target.reset();
+        // displayToDos();
+    })
 }

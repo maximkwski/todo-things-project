@@ -4,6 +4,7 @@ export default function defaultlist() {
     /* DEFAULT LIST DIV*/
     const defaultList = document.createElement('div');
     defaultList.classList.add('default-list');
+    defaultList.id = 'default-list';
 
     const todoListElement = document.createElement('section'); // TODO LIST OF ITEMS
     todoListElement.classList.add('todo-list');
