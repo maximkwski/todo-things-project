@@ -1,5 +1,7 @@
+import '../styles/form-and-todolist.css';
+
 export default function defaultlist() {
-    const contentDiv = document.getElementById('main') //main div
+    const contentDiv = document.getElementById('content') //content div
 
     /* DEFAULT LIST DIV*/
     const defaultList = document.createElement('div');
@@ -21,4 +23,5 @@ export default function defaultlist() {
     defaultList.appendChild(todoListElement);
     contentDiv.appendChild(defaultList); //add default list to main div
 
+    return defaultList;
 }
