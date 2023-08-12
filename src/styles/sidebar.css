@@ -2,3 +2,26 @@
     text-decoration: underline;
     color: red;
 }
+
+.greeting {
+    margin: 1rem;
+}
+
+aside>ul {
+    margin: 1rem;
+}
+
+.greeting .title {}
+
+.greeting .title input {
+    margin-left: 0.5em;
+    min-width: 0;
+
+}
+
+.greeting .title input,
+.greeting .title {
+    color: var(--dark);
+    font-size: 1rem;
+    font-weight: 700;
+}

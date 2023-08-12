@@ -1,9 +1,7 @@
 import '../styles/form-and-todolist.css';
 import { todos, saveTodos, getTodos, addTodo, removeTodo, clearTodos } from './todos';
-import { displayToDos } from './displayToDo';
 
 export default function form() {
-    // const contentDiv = document.getElementById('main') //main div
     const contentDiv = document.querySelector('#content')
 
     //FORM
@@ -69,7 +67,7 @@ export default function form() {
     createToDoElement.appendChild(todoForm);
     contentDiv.appendChild(createToDoElement); // add create todo item 
 
-
+    
     todoForm.addEventListener('submit', e => {
         e.preventDefault();
 
@@ -84,6 +82,5 @@ export default function form() {
         addTodo(todo);
 
         e.target.reset();
-        // displayToDos();
     })
 }

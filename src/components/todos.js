@@ -22,3 +22,24 @@ export function clearTodos() {
   todos = [];
   saveTodos();
 }
+
+/* PROJECTS */
+export let projects = JSON.parse(localStorage.getItem('projects')) || [];
+
+export function saveProjects() {
+  localStorage.setItem('projects', JSON.stringify(projects));
+}
+
+export function getProjects() {
+  return projects;
+}
+
+export function addProject(project) {
+  projects.push(project);
+  saveProjects();
+}
+
+export function removeProject(project) {
+  projects = projects.filter(t => t != project);
+  saveTodos();
+}
