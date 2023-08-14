@@ -1,6 +1,18 @@
 import '../styles/projects.css';
 import { projects, addProject } from './todos';
 
+export function displayProjects() {
+   const projectList = document.querySelector('#projects>ul');
+   projectList.innerHTML = '';
+
+   projects.forEach(project => {
+    const project_li = document.createElement('li');
+    project_li.classList.add('project-item');
+
+    project_li.textContent = `${project.title}`;
+    projectList.appendChild(project_li);
+    });
+}
 
 export default function createProject() {
     const contentDiv = document.querySelector('#content');
@@ -96,6 +108,7 @@ export default function createProject() {
         }
 
         addProject(project);
+        displayProjects()
         e.target.reset();
     })
 

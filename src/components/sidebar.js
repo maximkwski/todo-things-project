@@ -4,6 +4,7 @@ import { projects } from './todos';
 export default function sidebar() {
     /*NAV MENU*/
     const sidebarElement = document.querySelector('aside');
+    sidebarElement.innerHTML = '';
 
     const greetingElement = document.createElement('div'); // greeting element
     greetingElement.classList.add('greeting');
@@ -44,14 +45,14 @@ export default function sidebar() {
     li_projects.id = 'projects'
     const projectsUl = document.createElement('ul');
 
+
     projects.forEach(project => {
         const project_li = document.createElement('li');
         project_li.classList.add('project-item');
-
+    
         project_li.textContent = `${project.title}`;
         projectsUl.appendChild(project_li);
     });
-    
     
     li_projects.appendChild(projectsUl);
 
@@ -60,7 +61,7 @@ export default function sidebar() {
     addProject.id = 'add-project';
     addProject.type = 'button';
     addProject.textContent = 'Add Project';
-    projectsUl.appendChild(addProject);
+    li_projects.appendChild(addProject);
 
     const li_notes = document.createElement('li');
     li_notes.id = 'notes';
@@ -68,16 +69,17 @@ export default function sidebar() {
     li_notes_a.textContent = 'Quick Notes';
     li_notes.appendChild(li_notes_a);
 
-    navMenu.appendChild(li_default);
-    navMenu.appendChild(li_projects);
-    navMenu.appendChild(li_notes);
-    sidebarElement.appendChild(navMenu);
-
     const addToDo = document.createElement('button');
     addToDo.id = 'add-todo';
     addToDo.type = 'button';
-    addToDo.textContent = 'ADD';
-    sidebarElement.appendChild(addToDo);
+    addToDo.textContent = 'CREATE TO-DO';
+    
+    navMenu.appendChild(li_default);
+    navMenu.appendChild(li_projects);
+    navMenu.appendChild(li_notes);
+    navMenu.appendChild(addToDo);
+    sidebarElement.appendChild(navMenu);
+
 
     return sidebarElement;
 }

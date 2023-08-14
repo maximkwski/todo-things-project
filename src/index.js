@@ -15,12 +15,12 @@ footer();
 defaultlist();
 displayToDos();
 
+
 /* NAV BAR */
 const navBar = document.querySelector('aside>ul');
 navBar.querySelector('li#default>a').classList.add('selected');
 navBar.addEventListener('click', e => {
-    const previousLi = navBar.querySelector('li>a.selected');
-    
+    const previousLi = document.querySelector('.selected');
     if (e.target.innerHTML === 'Default List') {
         document.querySelector('#content').innerHTML = '';
         previousLi.classList.remove('selected');
@@ -32,19 +32,16 @@ navBar.addEventListener('click', e => {
         previousLi.classList.remove('selected');
         e.target.classList.add('selected');
         quickNotes();
+    } else if (e.target.innerHTML === 'Add Project') {
+        document.querySelector('#content').innerHTML = '';
+        previousLi.classList.remove('selected');
+        e.target.classList.add('selected');
+        createProject();
+    } else if (e.target.innerHTML === 'CREATE TO-DO') {
+        document.querySelector('#content').innerHTML = '';
+        previousLi.classList.remove('selected');
+        e.target.classList.add('selected');
+        form();
     } 
 })
 
-
-/* ADD PROJECT*/
-document.querySelector('#add-project').addEventListener('click', e => {
-    document.querySelector('#content').innerHTML = '';
-    createProject();
-})
-
-/* ADD TODO ITEM */
-document.querySelector('#add-todo').addEventListener('click', e => {
-    document.querySelector('#content').innerHTML = '';
-    navBar.querySelector('li>a.selected').classList.remove('selected');
-    form();
-})
