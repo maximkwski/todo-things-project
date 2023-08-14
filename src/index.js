@@ -8,6 +8,8 @@ import createProject from './components/projects';
 import quickNotes from './components/quickNotes';
 import { todos, saveTodos, getTodos, addTodo, removeTodo, clearTodos } from './components/todos';
 import { displayToDos } from './components/displayToDo';
+import { projectItem } from './components/projectItem';
+import { projects } from './components/todos';
 
 header();
 sidebar();
@@ -20,6 +22,8 @@ displayToDos();
 const navBar = document.querySelector('aside>ul');
 navBar.querySelector('li#default>a').classList.add('selected');
 navBar.addEventListener('click', e => {
+    
+
     const previousLi = document.querySelector('.selected');
     if (e.target.innerHTML === 'Default List') {
         document.querySelector('#content').innerHTML = '';
@@ -42,6 +46,18 @@ navBar.addEventListener('click', e => {
         previousLi.classList.remove('selected');
         e.target.classList.add('selected');
         form();
-    } 
+    }
+    // console.log('the target is', e.target);
+
+
 })
 
+//DISPLAY PROJECT
+const projectList = document.querySelector('#projects>ul').children;
+for (let i = 0; i < projectList.length; i++) {
+        projectList[i].addEventListener('click', e => {
+            document.querySelector('#content').innerHTML = '';
+
+            projectItem(projects[i]);
+        })
+    }
