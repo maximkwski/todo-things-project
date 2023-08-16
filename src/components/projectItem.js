@@ -1,6 +1,6 @@
-import { projects } from "./todos";
-import form from "./form";
+import { projects, saveProjects } from "./todos";
 import '../styles/projectItem.css';
+
 
 export function projectItem(proj) {
 
@@ -14,11 +14,34 @@ export function projectItem(proj) {
     project_category.textContent = `${proj.category}`;
     const project_due = document.createElement('h3');
     project_due.textContent = `Due: ${proj.dueDate}`;
+
+    const tasklist = document.createElement('section');
+    tasklist.classList.add('task-list');
+    tasklist.id = 'task-list'
+
+    console.log(proj.tasks);
+
+    function displayTask() {
+        tasklist.innerHTML = '';
+
+        proj.tasks.forEach(task => {
+            const taskItem = document.createElement('div');
+            taskItem.classList.add('task-item');
+            taskItem.innerHTML = `${task.createdAt}, ${task.content}`;
+            tasklist.appendChild(taskItem);
+        });
+
+    }
+    displayTask();
+
+
     
     projectDiv.appendChild(project_h2);
     projectDiv.appendChild(project_category);
     projectDiv.appendChild(project_due);
-    contentDiv.appendChild(projectDiv);
+    projectDiv.appendChild(tasklist); //add tasklist to project item
+
+    contentDiv.appendChild(projectDiv); //add project to content div
 
 
 
@@ -44,6 +67,13 @@ export function projectItem(proj) {
    const priorityDiv = document.createElement('div');
    priorityDiv.classList.add('priority');
    
+   const priority_h3 = document.createElement('h3');
+   priority_h3.textContent = 'Priority:'
+    priorityDiv.appendChild(priority_h3);
+
+   const priority_labels = document.createElement('div');
+   priority_labels.classList.add('priority-labels'); 
+
    const label1 = document.createElement('label'); // priority low
    const label1_input = document.createElement('input');
     label1_input.type = 'radio';
@@ -58,7 +88,7 @@ export function projectItem(proj) {
     label1.appendChild(label1_input);
     label1.appendChild(low_span);
     label1.appendChild(low_div);
-    priorityDiv.appendChild(label1);
+    priority_labels.appendChild(label1);
 
     const label2 = document.createElement('label'); // priority medium
    const label2_input = document.createElement('input');
@@ -74,7 +104,7 @@ export function projectItem(proj) {
     label2.appendChild(label2_input);
     label2.appendChild(medium_span);
     label2.appendChild(medium_div);
-    priorityDiv.appendChild(label2);
+    priority_labels.appendChild(label2);
 
     const label3 = document.createElement('label'); // priority high
    const label3_input = document.createElement('input');
@@ -90,12 +120,14 @@ export function projectItem(proj) {
     label3.appendChild(label3_input);
     label3.appendChild(high_span);
     label3.appendChild(high_div);
-    priorityDiv.appendChild(label3);
+    priority_labels.appendChild(label3);
+
+    priorityDiv.appendChild(priority_labels);
     todoForm.appendChild(priorityDiv);
 
    const submit_btn = document.createElement('input');
     submit_btn.type = 'submit';
-    submit_btn.value = 'Add To Do';
+    submit_btn.value = 'Add Task';
     todoForm.appendChild(submit_btn); // add submit btn
     
     createToDoElement.appendChild(todoForm);
@@ -104,16 +136,21 @@ export function projectItem(proj) {
     todoForm.addEventListener('submit', e => {
         e.preventDefault();
 
-        // const todo = {
-        //     content: e.target.elements.content.value,
-        //     category: e.target.elements.category.value,
-        //     done: false,
-        //     createdAt: new Date().getTime()
 
-        // }
+        const task = {
+            content: e.target.elements.content.value,
+            priority: e.target.elements.priority.value,
+            done: false,
+            createdAt: new Date().getTime()
 
-        // addTodo(todo);
+        }
 
+        console.log(proj.createdAt);
+       
+
+        proj.tasks.push(task);
+        saveProjects();
+        displayTask();
         e.target.reset();
     })
 

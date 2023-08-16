@@ -53,11 +53,15 @@ navBar.addEventListener('click', e => {
 })
 
 //DISPLAY PROJECT
-const projectList = document.querySelector('#projects>ul').children;
-for (let i = 0; i < projectList.length; i++) {
-        projectList[i].addEventListener('click', e => {
-            document.querySelector('#content').innerHTML = '';
-
-            projectItem(projects[i]);
-        })
+export function displayProjectItem() {
+    const projectList = document.querySelector('#projects>ul').children;
+    for (let i = 0; i < projectList.length; i++) {
+            projectList[i].addEventListener('click', e => {
+                document.querySelector('#content').innerHTML = '';
+    
+                projectItem(projects[i]);
+            })
     }
+    
+}
+document.addEventListener('DOMContentLoaded', displayProjectItem);

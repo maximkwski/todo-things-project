@@ -1,5 +1,6 @@
 import '../styles/projects.css';
 import { projects, addProject } from './todos';
+import { displayProjectItem } from '..';
 
 export function displayProjects() {
    const projectList = document.querySelector('#projects>ul');
@@ -12,6 +13,9 @@ export function displayProjects() {
     project_li.textContent = `${project.title}`;
     projectList.appendChild(project_li);
     });
+
+    displayProjectItem();
+
 }
 
 export default function createProject() {
@@ -102,13 +106,13 @@ export default function createProject() {
         const project = {
             title: e.target.elements.title.value,
             category: e.target.elements.category.value,
-            todos: [],
+            tasks: [],
             dueDate: e.target.elements.dueDate.value,
             createdAt: new Date().getTime()
         }
 
         addProject(project);
-        displayProjects()
+        displayProjects();
         e.target.reset();
     })
 

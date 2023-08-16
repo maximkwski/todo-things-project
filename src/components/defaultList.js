@@ -3,10 +3,10 @@ import '../styles/form-and-todolist.css';
 export default function defaultlist() {
     const contentDiv = document.getElementById('content') //content div
 
-    /* DEFAULT LIST DIV*/
-    const defaultList = document.createElement('div');
-    defaultList.classList.add('default-list');
-    defaultList.id = 'default-list';
+    // /* DEFAULT LIST DIV*/
+    // const defaultList = document.createElement('div');
+    // defaultList.classList.add('default-list');
+    // defaultList.id = 'default-list';
 
     const todoListElement = document.createElement('section'); // TODO LIST OF ITEMS
     todoListElement.classList.add('todo-list');
@@ -20,8 +20,8 @@ export default function defaultlist() {
 
 
     todoListElement.appendChild(todoList_div);
-    defaultList.appendChild(todoListElement);
-    contentDiv.appendChild(defaultList); //add default list to main div
+    // defaultList.appendChild(todoListElement);
+    contentDiv.appendChild(todoListElement); //add default list to main div
 
-    return defaultList;
+    return contentDiv;
 }
