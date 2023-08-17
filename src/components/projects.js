@@ -33,6 +33,7 @@ export default function createProject() {
     const projectForm_h4 = document.createElement('h4');
     projectForm_h4.textContent = "What's your project's title?";
     const projectForm_input = document.createElement('input');
+    projectForm_input.required = 'true';
     projectForm_input.type = 'text';
     projectForm_input.name = 'title';
     projectForm_input.id = 'title';
@@ -46,6 +47,7 @@ export default function createProject() {
 
     const label1 = document.createElement('label'); // option business
     const label1_input = document.createElement('input');
+    label1_input.checked = 'true';
     label1_input.type = 'radio';
     label1_input.name = 'category';
     label1_input.id = 'category1';
@@ -86,6 +88,7 @@ export default function createProject() {
     dueDate_label.for = 'dueDate';
     dueDate_label.textContent = 'Due:';
     const dueDate_input = document.createElement('input');
+    dueDate_input.required = 'true';
     dueDate_input.type = 'date';
     dueDate_input.id = 'dueDate';
     dueDate_input.name = 'dueDate';

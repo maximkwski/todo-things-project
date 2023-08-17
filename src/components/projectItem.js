@@ -17,22 +17,103 @@ export function projectItem(proj) {
 
     const tasklist = document.createElement('section');
     tasklist.classList.add('task-list');
-    tasklist.id = 'task-list'
+    tasklist.id = 'task-list';
 
     console.log(proj.tasks);
 
-    function displayTask() {
+    function displayTasks() {
         tasklist.innerHTML = '';
 
         proj.tasks.forEach(task => {
-            const taskItem = document.createElement('div');
+            const taskItem = document.createElement('div'); //task item
             taskItem.classList.add('task-item');
-            taskItem.innerHTML = `${task.createdAt}, ${task.content}`;
+            
+            const label = document.createElement('label'); //task checkbox
+            const input = document.createElement('input');
+            input.type = 'checkbox';
+            input.checked = task.done;
+            const span = document.createElement('span');
+            span.classList.add('bubble');
+        
+            if (task.priority == 'low') {
+                span.classList.add('low');
+            } else if (task.priority == 'medium') {
+                span.classList.add('medium');
+            } else if (task.priority == 'high') {
+                span.classList.add('high');
+            }
+
+            label.appendChild(input);
+            label.appendChild(span);
+
+            const content = document.createElement('div'); //task content
+            content.classList.add('task-content');
+            const content_input = document.createElement('input');
+            content_input.type = 'text';
+            content_input.value = `${task.content}`;
+            content_input.setAttribute('readonly', true);
+            content.appendChild(content_input);
+
+            const actions = document.createElement('div'); //ACTION BUTTONS
+            actions.classList.add('actions');
+            const edit = document.createElement('button');
+            edit.classList.add('edit');
+            edit.textContent = 'Edit'
+            const deleteButton = document.createElement('button');
+            deleteButton.classList.add('delete');
+            deleteButton.textContent = 'Delete';
+            actions.appendChild(edit);
+            actions.appendChild(deleteButton);
+
+            taskItem.appendChild(label);
+            taskItem.appendChild(content);
+            taskItem.appendChild(actions);
+
+            tasklist.append(taskItem);
+
+            if (task.done) {
+                taskItem.classList.add('done');
+            }
+
+            input.addEventListener('click', e => {
+                task.done = e.target.checked;
+                saveProjects();
+    
+                if (task.done) {
+                    taskItem.classList.add('done');
+                } else {
+                    taskItem.classList.remove('done');
+                }
+                displayTasks();
+            })
+
+            edit.addEventListener('click', e => {
+                const input  = content.querySelector('input');
+                input.removeAttribute('readonly');
+                input.focus();
+                input.addEventListener('blur', e => {
+                    input.setAttribute('readonly', true);
+                    task.content = e.target.value;
+                    saveProjects();
+                    displayTasks();
+                })
+
+            })
+
+            deleteButton.addEventListener('click', e => {
+                proj.tasks = proj.tasks.filter(t => t != task);
+                console.log(proj.tasks);
+                saveProjects();
+                displayTasks();
+
+            })
+
+
             tasklist.appendChild(taskItem);
         });
 
     }
-    displayTask();
+    displayTasks();
 
 
     
@@ -57,6 +138,7 @@ export function projectItem(proj) {
    const todoForm_h4 = document.createElement('h4');
    todoForm_h4.textContent = "What's on your project list?";
    const todoForm_input = document.createElement('input');
+   todoForm_input.required = 'true';
    todoForm_input.type = 'text';
    todoForm_input.name = 'content';
    todoForm_input.id = 'content';
@@ -76,6 +158,8 @@ export function projectItem(proj) {
 
    const label1 = document.createElement('label'); // priority low
    const label1_input = document.createElement('input');
+   label1_input.required = 'true';
+   label1_input.checked = 'true';
     label1_input.type = 'radio';
     label1_input.name = 'priority';
     label1_input.id = 'priority1';
@@ -144,13 +228,11 @@ export function projectItem(proj) {
             createdAt: new Date().getTime()
 
         }
-
-        console.log(proj.createdAt);
        
 
         proj.tasks.push(task);
         saveProjects();
-        displayTask();
+        displayTasks();
         e.target.reset();
     })
 
