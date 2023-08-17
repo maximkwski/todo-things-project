@@ -1,6 +1,6 @@
-import { projects, saveProjects } from "./todos";
 import '../styles/projectItem.css';
-
+import { projects, saveProjects, removeProject } from "./todos";
+import { displayProjects } from './projects';
 
 export function projectItem(proj) {
 
@@ -235,6 +235,21 @@ export function projectItem(proj) {
         displayTasks();
         e.target.reset();
     })
+
+    const deleteProject = document.createElement('input');
+    deleteProject.type = 'button';
+    deleteProject.value = 'Delete Project';
+    createToDoElement.appendChild(deleteProject);
+
+    deleteProject.addEventListener('click', e => {
+        console.log('clicked')
+       removeProject(proj);
+       contentDiv.innerHTML = '';
+       projectItem(projects[0]);
+
+       displayProjects();
+    })
+
 
     return contentDiv;
 }

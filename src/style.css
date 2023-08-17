@@ -9,20 +9,21 @@
     --personal: var(--primary);
     --light: #eee;
     --dark: #313154;
-    --danger: #ff5b57;
+    --danger: rgb(255, 91, 87);
     --grey: #888;
     --shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
 
     --business-glow: 0px 0px 4px rgba(58, 130, 238, 0.75);
     --personal-glow: 0px 0px 4px rgba(234, 64, 164, 0.75);
+    --danger-glow: 0px 0px 4px rgba(255, 91, 87, 0.75);
 
     --low: rgba(97, 255, 66);
     --medium: rgb(244, 252, 2);
     --high: var(--danger);
 
     --low-glow: 0px 0px 4px rgba(97, 255, 66, 0.75);
-    --medium-glow: 0px 0px 4px rgb(244, 252, 2, 0.75);
-    --high-glow: 0px 0px 4px rgb(255, 91, 87, 0.75);
+    --medium-glow: 0px 0px 4px rgba(244, 252, 2, 0.75);
+    --high-glow: 0px 0px 4px rgba(255, 91, 87, 0.75);
     ;
 }
 

@@ -43,7 +43,7 @@ export function addProject(project) {
 
 export function removeProject(project) {
   projects = projects.filter(t => t != project);
-  saveTodos();
+  saveProjects();
 }
 
 /* PROJECT Tasks */
