@@ -81,7 +81,9 @@ export function displayToDos() {
             removeTodo(todo);
             displayToDos();
         })
+        
     })
+    
 
 }
 

@@ -1,5 +1,6 @@
 import '../styles/form-and-todolist.css';
 import { todos, saveTodos, getTodos, addTodo, removeTodo, clearTodos } from './todos';
+import { displayToDos } from './displayToDo';
 
 export default function form() {
     const contentDiv = document.querySelector('#content')
@@ -80,7 +81,7 @@ export default function form() {
         }
 
         addTodo(todo);
-
+        displayToDos();
         e.target.reset();
     })
 }

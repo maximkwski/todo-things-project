@@ -1,6 +1,8 @@
 import '../styles/projectItem.css';
 import { projects, saveProjects, removeProject } from "./todos";
 import { displayProjects } from './projects';
+import defaultlist from './defaultList';
+import { displayToDos } from './displayToDo';
 
 export function projectItem(proj) {
 
@@ -18,8 +20,6 @@ export function projectItem(proj) {
     const tasklist = document.createElement('section');
     tasklist.classList.add('task-list');
     tasklist.id = 'task-list';
-
-    console.log(proj.tasks);
 
     function displayTasks() {
         tasklist.innerHTML = '';
@@ -242,10 +242,14 @@ export function projectItem(proj) {
     createToDoElement.appendChild(deleteProject);
 
     deleteProject.addEventListener('click', e => {
-        console.log('clicked')
        removeProject(proj);
        contentDiv.innerHTML = '';
-       projectItem(projects[0]);
+       if (projects[0]) {
+           projectItem(projects[0]);
+       } else {
+        defaultlist();
+        displayToDos();
+       }
 
        displayProjects();
     })

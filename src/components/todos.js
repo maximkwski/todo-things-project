@@ -1,5 +1,3 @@
-import json5 from "json5";
-
 export let todos = JSON.parse(localStorage.getItem('todos')) || [];
 
 export function saveTodos() {
@@ -46,5 +44,24 @@ export function removeProject(project) {
   saveProjects();
 }
 
-/* PROJECT Tasks */
+/* notes */
 
+export let notes = JSON.parse(localStorage.getItem('notes')) || [];
+
+export function saveNotes() {
+  localStorage.setItem('notes', JSON.stringify(notes));
+}
+
+export function getNotes() {
+  return notes;
+}
+
+export function addNote(note) {
+  notes.push(note);
+  saveNotes();
+}
+
+export function removeNote(note) {
+  notes = notes.filter(n => n != note)
+  saveNotes();
+}

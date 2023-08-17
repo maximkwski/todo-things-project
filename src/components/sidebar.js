@@ -38,7 +38,7 @@ export default function sidebar() {
     const li_default = document.createElement('li');
     li_default.id = 'default';
     const li_default_a = document.createElement('a');
-    li_default_a.textContent = 'Default List'
+    li_default_a.textContent = 'To-Do List';
     li_default.appendChild(li_default_a);
     const li_projects = document.createElement('li');
     li_projects.textContent = 'My Projects'
@@ -69,15 +69,10 @@ export default function sidebar() {
     li_notes_a.textContent = 'Quick Notes';
     li_notes.appendChild(li_notes_a);
 
-    const addToDo = document.createElement('button');
-    addToDo.id = 'add-todo';
-    addToDo.type = 'button';
-    addToDo.textContent = 'CREATE TO-DO';
     
     navMenu.appendChild(li_default);
     navMenu.appendChild(li_projects);
     navMenu.appendChild(li_notes);
-    navMenu.appendChild(addToDo);
     sidebarElement.appendChild(navMenu);
 
 

@@ -1,12 +1,8 @@
 import '../styles/form-and-todolist.css';
+import form from './form';
 
 export default function defaultlist() {
     const contentDiv = document.getElementById('content') //content div
-
-    // /* DEFAULT LIST DIV*/
-    // const defaultList = document.createElement('div');
-    // defaultList.classList.add('default-list');
-    // defaultList.id = 'default-list';
 
     const todoListElement = document.createElement('section'); // TODO LIST OF ITEMS
     todoListElement.classList.add('todo-list');
@@ -22,6 +18,8 @@ export default function defaultlist() {
     todoListElement.appendChild(todoList_div);
     // defaultList.appendChild(todoListElement);
     contentDiv.appendChild(todoListElement); //add default list to main div
+
+    form();
 
     return contentDiv;
 }
