@@ -89,7 +89,7 @@ input:checked~.bbl::after {
     opacity: 1;
 }
 
-#content input[type="button"] {
+.create-todo input[type="button"] {
     display: block;
     width: 100%;
     font-size: 1.125rem;
@@ -103,7 +103,7 @@ input:checked~.bbl::after {
     transition: 0.2s ease-in-out;
 }
 
-#content input[type="button"]:hover {
+.create-todo input[type="button"]:hover {
     opacity: 0.75;
 }
 
