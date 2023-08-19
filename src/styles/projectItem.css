@@ -30,7 +30,7 @@
     cursor: pointer;
 }
 
-.priority .bbl {
+.bbl {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,17 +41,17 @@
     box-shadow: var(--low-glow);
 }
 
-.priority .bbl.low {
+.bbl.low {
     border-color: var(--low);
     box-shadow: var(--low-glow);
 }
 
-.priority .bbl.medium {
+.bbl.medium {
     border-color: var(--medium);
     box-shadow: var(--medium-glow);
 }
 
-.priority .bbl.high {
+.bbl.high {
     border-color: var(--high);
     box-shadow: var(--high-glow);
 }
@@ -165,4 +165,19 @@ input:checked~.bbl::after {
 .task-item.done .task-content input {
     text-decoration: line-through;
     color: var(--grey);
+}
+
+span .bbl .low {
+    border: 2px solid var(--low);
+    box-shadow: var(--business-low);
+}
+
+span .bbl .medium {
+    border: 2px solid var(--medium);
+    box-shadow: var(--medium-glow);
+}
+
+span .bbl .high {
+    border: 2px solid var(--high);
+    box-shadow: var(--high-glow);
 }

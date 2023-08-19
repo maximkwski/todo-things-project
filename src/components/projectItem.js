@@ -33,7 +33,7 @@ export function projectItem(proj) {
             input.type = 'checkbox';
             input.checked = task.done;
             const span = document.createElement('span');
-            span.classList.add('bubble');
+            span.classList.add('bbl');
         
             if (task.priority == 'low') {
                 span.classList.add('low');
