@@ -3,6 +3,7 @@ import { notes, addNote, removeNote, saveNotes } from "./todos";
 
 export default function quickNotes() {
     const contentDiv = document.querySelector('#content');
+    contentDiv.innerHTML = '';
 
     const notesElement = document.createElement('section');
     notesElement.id = 'notes';
@@ -38,6 +39,12 @@ export default function quickNotes() {
             quickNotes();
 
         })
+
+        deleteBtn.addEventListener('click', e => {
+            removeNote(note);
+            saveNotes();
+            quickNotes();
+        })
     });
 
     const addNoteBtn = document.createElement('input');
@@ -52,6 +59,7 @@ export default function quickNotes() {
             date: new Date().toLocaleDateString()
         }
         addNote(note);
+        quickNotes();
         console.log(notes);
     })
 
