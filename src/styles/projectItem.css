@@ -109,6 +109,16 @@ input:checked~.bbl::after {
 
 /* PROJECT ITEM AND TASKS LIST */
 
+.project-item h2 {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+
+.project-item h3 {
+    text-align: center;
+}
+
 .task-item {
     display: flex;
     align-items: center;

@@ -15,7 +15,8 @@ export function projectItem(proj) {
     const project_category = document.createElement('h3');
     project_category.textContent = `${proj.category}`;
     const project_due = document.createElement('h3');
-    project_due.textContent = `Due: ${proj.dueDate}`;
+    const [year, month, day] = (proj.dueDate).split('-');
+    project_due.textContent = `Due: ${month}/${day}/${year}`;
 
     const tasklist = document.createElement('section');
     tasklist.classList.add('task-list');

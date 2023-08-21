@@ -23,11 +23,22 @@ export default function footer() {
       sourceLink.target = "_blank";
       sourceLink.rel = "noopener noreferrer";
       sourceLink.href = "https://github.com/maximkwski/todo-things-project";
-      
-      
+
       footerContainer.appendChild(sourceLink);
+
+      const iconsBy = document.createElement('div');
+      iconsBy.classList.add('icons-ref');
+      iconsBy.textContent = 'Icons by ';
+      const iconsAnchor = document.createElement('a');
+      iconsAnchor.href = 'https://www.flaticon.com/free-icons/to-do';
+      iconsAnchor.title = 'to do icons';
+      iconsAnchor.textContent = 'Graphics Plazza - Flaticon';
+      iconsBy.appendChild(iconsAnchor);
       
+      
+
       footerElement.appendChild(footerContainer);
+      footerElement.appendChild(iconsBy);
 
     return footerElement;
 }

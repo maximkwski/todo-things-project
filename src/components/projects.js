@@ -114,6 +114,7 @@ export default function createProject() {
             createdAt: new Date().getTime()
         }
 
+
         addProject(project);
         displayProjects();
         e.target.reset();

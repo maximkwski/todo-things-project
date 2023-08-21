@@ -1,14 +1,16 @@
 .selected {
-    text-decoration: underline;
-    color: red;
+    color: var(--primary);
 }
 
 .greeting {
     margin: 1rem;
+    text-align: center;
 }
 
+
 aside>ul {
-    margin: 1rem;
+    margin: 1rem 2rem;
+    list-style: none;
 }
 
 .greeting .title {}
@@ -22,6 +24,54 @@ aside>ul {
 .greeting .title input,
 .greeting .title {
     color: var(--dark);
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: 700;
+}
+
+aside ul li {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+
+aside ul li:not([id="projects"]) {
+    display: flex;
+    align-items: center;
+}
+
+ul img {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+aside ul li:hover {
+    cursor: pointer;
+}
+
+li#projects div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+li#projects ul li {
+    margin-left: 3rem;
+    display: list-item;
+}
+
+li#projects button {
+    font-size: 1rem;
+    border: 1px solid var(--grey);
+    border-radius: 5px;
+    padding: 2px 8px;
+    margin-left: 3rem;
+    transition: 0.2s ease-in-out;
+}
+
+li#projects button:active,
+li#projects button:hover {
+    color: var(--primary);
+    border-color: var(--primary);
+
 }

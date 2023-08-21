@@ -4,17 +4,17 @@
 }
 
 :root {
-    --primary: #EA40A4;
+    --primary: #00aaa0;
     --business: #3a82ee;
     --personal: var(--primary);
-    --light: #eee;
+    --light: #e0e5e4;
     --dark: #313154;
     --danger: rgb(255, 91, 87);
     --grey: #888;
     --shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
 
     --business-glow: 0px 0px 4px rgba(58, 130, 238, 0.75);
-    --personal-glow: 0px 0px 4px rgba(234, 64, 164, 0.75);
+    --personal-glow: 0px 0px 4px rgba(0, 170, 160, 0.75);
     --danger-glow: 0px 0px 4px rgba(255, 91, 87, 0.75);
 
     --low: rgba(97, 255, 66);
@@ -67,13 +67,30 @@ h4 {
 
 /*HEADER*/
 header {
-    background-color: bisque;
+    background-color: #fcf4d9;
+    box-shadow: var(--shadow);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+header h1 {
+    margin: 0.5rem 1rem;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+header img {
+    height: 3rem;
+    width: 3rem;
+}
+
 
 /*MAIN*/
 
 aside {
-    background-color: rgb(189, 246, 227);
+    background-color: #8ed2c9;
 }
 
 #main {
@@ -85,12 +102,30 @@ aside {
 
 /*FOOTER*/
 footer {
-    background-color: rgb(199, 196, 191)
+    background-color: #d55b3e;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer div {
+    margin: 0.2rem 1rem;
 }
 
 footer img {
     width: 15px;
     margin: 0 5px;
+}
+
+footer a {
+    /* text-decoration: none; */
+    color: var(--dark);
+
+}
+
+.footer-container {
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
 /*----------------*/

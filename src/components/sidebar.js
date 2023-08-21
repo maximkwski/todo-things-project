@@ -1,4 +1,8 @@
 import '../styles/sidebar.css';
+import notePng from '../assets/note.png';
+import todoPng from '../assets/todo.png';
+import projectsPng from '../assets/projects.png';
+
 import { projects } from './todos';
 
 export default function sidebar() {
@@ -37,12 +41,20 @@ export default function sidebar() {
     const navMenu = document.createElement('ul');
     const li_default = document.createElement('li');
     li_default.id = 'default';
+    const todoIcon = new Image();
+    todoIcon.src = todoPng;
     const li_default_a = document.createElement('a');
     li_default_a.textContent = 'To-Do List';
+    li_default.appendChild(todoIcon);
     li_default.appendChild(li_default_a);
     const li_projects = document.createElement('li');
-    li_projects.textContent = 'My Projects'
-    li_projects.id = 'projects'
+    const li_projectsDiv = document.createElement('div');
+    const projectsIcon = new Image();
+    projectsIcon.src = projectsPng;
+    li_projectsDiv.appendChild(projectsIcon);
+    li_projectsDiv.innerHTML += 'My Projects';
+    li_projects.id = 'projects';
+    li_projects.appendChild(li_projectsDiv);
     const projectsUl = document.createElement('ul');
 
 
@@ -64,9 +76,12 @@ export default function sidebar() {
     li_projects.appendChild(addProject);
 
     const li_notes = document.createElement('li');
-    li_notes.id = 'notes';
+    li_notes.id = 'li-notes';
+    const notesIcon = new Image();
+    notesIcon.src = notePng;
     const li_notes_a = document.createElement('a');
     li_notes_a.textContent = 'Quick Notes';
+    li_notes.appendChild(notesIcon);
     li_notes.appendChild(li_notes_a);
 
     
