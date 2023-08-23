@@ -47,11 +47,14 @@ navBar.addEventListener('click', e => {
 export function displayProjectItem() {
     const projectList = document.querySelector('#projects>ul').children;
     for (let i = 0; i < projectList.length; i++) {
-            projectList[i].addEventListener('click', e => {
-                document.querySelector('#content').innerHTML = '';
-    
-                projectItem(projects[i]);
-            })
+        projectList[i].addEventListener('click', e => {
+            const previousLi = document.querySelector('.selected');
+            previousLi.classList.remove('selected');
+            projectList[i].classList.add('selected');
+            document.querySelector('#content').innerHTML = '';
+            
+            projectItem(projects[i]);
+        })
     }
     
 }

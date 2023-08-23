@@ -4,7 +4,7 @@ export function displayToDos() {
     const todoList = document.querySelector('#todo-list');
     todoList.innerHTML = '';
 
-    todos.forEach(todo => {
+    todos.sort((a, b) => b.createdAt - a.createdAt).forEach(todo => {
         const todoItem = document.createElement('div'); // TODO ITEM
         todoItem.classList.add('todo-item');
 

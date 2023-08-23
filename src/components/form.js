@@ -2,6 +2,7 @@ import '../styles/form-and-todolist.css';
 import { todos, saveTodos, getTodos, addTodo, removeTodo, clearTodos } from './todos';
 import { displayToDos } from './displayToDo';
 
+/* TO-DO FORM */
 export default function form() {
     const contentDiv = document.querySelector('#content')
 
