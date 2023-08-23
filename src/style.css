@@ -37,7 +37,7 @@
 body {
     display: grid;
     grid-template-columns: minmax(min-content, 1fr);
-    grid-template-rows: max-content 4fr min-content;
+    grid-template-rows: max-content 5fr min-content;
 
     height: 100vh;
     color: var(--dark);
@@ -70,9 +70,16 @@ header {
     background-color: #fcf4d9;
     box-shadow: var(--shadow);
     z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+}
+
+.header-logo {
+    grid-column: 2/3;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+
 }
 
 header h1 {
@@ -86,6 +93,40 @@ header img {
     width: 3rem;
 }
 
+.burger-menu {
+    display: none;
+
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    height: 35px;
+    width: 35px;
+    cursor: pointer;
+    padding: 6px 3px;
+    margin: 0.5rem 1rem;
+    border: 1px solid var(--dark);
+    border-radius: 0.5rem;
+
+
+}
+
+.burger-menu:active {
+    border-color: var(--primary);
+
+    .bar {
+        background-color: var(--primary);
+    }
+}
+
+span.bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--dark);
+    border-radius: 0.5rem;
+}
+
 
 /*MAIN*/
 
@@ -95,7 +136,7 @@ aside {
 
 #main {
     display: grid;
-    grid-template-columns: minmax(min-content, 1fr) 3fr;
+    grid-template-columns: minmax(min-content, 1fr) 2fr;
 }
 
 
@@ -129,3 +170,44 @@ footer a {
 }
 
 /*----------------*/
+
+@media only screen and (max-width: 768px) {
+    .burger-menu {
+        display: flex;
+    }
+
+    #main {
+        grid-template-columns: 1fr;
+    }
+
+    aside {
+        height: 0px;
+        overflow: hidden;
+        transition: height 0.3s ease-in-out;
+        box-shadow: var(--shadow);
+    }
+
+    .burg-active {
+        border-color: var(--primary);
+
+        .bar {
+            background-color: var(--primary);
+        }
+    }
+
+    .active {
+        display: block;
+        height: 300px;
+    }
+
+    .header-logo {
+        grid-column: 2/-1;
+        justify-self: end;
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+}
