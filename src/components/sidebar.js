@@ -65,10 +65,8 @@ export default function sidebar() {
         project_li.textContent = `${project.title}`;
         projectsUl.appendChild(project_li);
     });
-    
     li_projects.appendChild(projectsUl);
 
-    // const projectsUl_add = document.createElement('li');
     const addProject = document.createElement('button');
     addProject.id = 'add-project';
     addProject.type = 'button';

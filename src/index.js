@@ -21,7 +21,6 @@ const navBar = document.querySelector('aside>ul');
 navBar.querySelector('li#default>a').classList.add('selected');
 navBar.addEventListener('click', e => {
     
-
     const previousLi = document.querySelector('.selected');
     if (e.target.innerHTML === 'To-Do List') {
         document.querySelector('#content').innerHTML = '';

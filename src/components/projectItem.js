@@ -116,17 +116,12 @@ export function projectItem(proj) {
     }
     displayTasks();
 
-
-    
     projectDiv.appendChild(project_h2);
     projectDiv.appendChild(project_category);
     projectDiv.appendChild(project_due);
     projectDiv.appendChild(tasklist); //add tasklist to project item
 
     contentDiv.appendChild(projectDiv); //add project to content div
-
-
-
 
    //FORM
    const createToDoElement = document.createElement('section');

@@ -1,4 +1,4 @@
-import { todos, saveTodos, getTodos, addTodo, removeTodo, clearTodos } from './todos';
+import { todos, saveTodos, addTodo, removeTodo } from './todos';
 
 export function displayToDos() {
     const todoList = document.querySelector('#todo-list');

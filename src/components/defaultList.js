@@ -16,7 +16,6 @@ export default function defaultlist() {
 
 
     todoListElement.appendChild(todoList_div);
-    // defaultList.appendChild(todoListElement);
     contentDiv.appendChild(todoListElement); //add default list to main div
 
     form();
