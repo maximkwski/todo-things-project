@@ -6,5 +6,5 @@ live at:
 ***Directions***
 Navigation Menu:
 To-DO List is a "Default" List of Users To-Dos.
-You Create A Project (Separate List of Tasks) with additional information such as, Due Date and Priority. User can Edit, Delete Tasks, or Delete the whole Project if needed.
+User can create a Project (List of Tasks) with additional information such as, Due Date and Priority. User can Edit, Delete Tasks, or Delete the whole Project if needed.
 Quick Notes allows User to save simple small-size notes, similar to "sticky notes".
