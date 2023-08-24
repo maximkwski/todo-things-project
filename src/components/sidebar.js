@@ -3,7 +3,7 @@ import notePng from '../assets/note.png';
 import todoPng from '../assets/todo.png';
 import projectsPng from '../assets/projects.png';
 
-import { projects } from './todos';
+import { projects, todos } from './todos';
 
 export default function sidebar() {
     /*NAV MENU*/
@@ -45,8 +45,16 @@ export default function sidebar() {
     todoIcon.src = todoPng;
     const li_default_a = document.createElement('a');
     li_default_a.textContent = 'To-Do List';
+    const todoCount = document.createElement('span');
+    todoCount.classList.add('todo-count');
+    todoCount.innerHTML = `${todos.length}`
+
     li_default.appendChild(todoIcon);
     li_default.appendChild(li_default_a);
+    li_default.appendChild(todoCount);
+
+
+
     const li_projects = document.createElement('li');
     const li_projectsDiv = document.createElement('div');
     const projectsIcon = new Image();

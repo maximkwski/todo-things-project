@@ -1,4 +1,5 @@
 import { todos, saveTodos, addTodo, removeTodo } from './todos';
+import sidebar from './sidebar';
 
 export function displayToDos() {
     const todoList = document.querySelector('#todo-list');
@@ -80,6 +81,7 @@ export function displayToDos() {
         deleteButton.addEventListener('click', e => {
             removeTodo(todo);
             displayToDos();
+            sidebar(); //update count
         })
         
     })

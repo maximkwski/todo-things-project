@@ -1,6 +1,7 @@
 import '../styles/form-and-todolist.css';
 import { addTodo } from './todos';
 import { displayToDos } from './displayToDo';
+import sidebar from './sidebar';
 
 /* TO-DO FORM */
 export default function form() {
@@ -83,6 +84,7 @@ export default function form() {
 
         addTodo(todo);
         displayToDos();
+        sidebar(); //update count
         e.target.reset();
     })
 }
