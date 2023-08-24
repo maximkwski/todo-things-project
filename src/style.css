@@ -183,8 +183,8 @@ footer a {
     aside {
         height: 0px;
         overflow: hidden;
-        transition: height 0.3s ease-in-out;
         box-shadow: var(--shadow);
+        transition: height 0.3s ease-in-out;
     }
 
     .burg-active {
@@ -198,6 +198,8 @@ footer a {
     .active {
         display: block;
         height: 285px;
+        /* max-height: max-content; */
+        overflow-y: auto;
     }
 
     .header-logo {

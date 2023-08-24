@@ -1,5 +1,5 @@
 # todo-things-project
-live at: 
+live at: https://maximkwski.github.io/todo-things-project/
 
 *TO-DO-THINGS: project to make functional multi-page website using WebPack to bundle files, practice creating content using only javascript, importing/exporting modules from different files and re-using them where needed, as well as practicing saving and extracting data using localStorage*
 
