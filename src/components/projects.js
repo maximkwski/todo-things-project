@@ -103,6 +103,11 @@ export default function createProject() {
     submit_btn.value = 'Create a Project';
     projectForm.appendChild(submit_btn); // add submit btn
 
+    dueDate.addEventListener('click', e => {
+            const input  = dueDate.querySelector('input');
+            input.focus();
+    })
+
     projectForm.addEventListener('submit', e => {
         e.preventDefault();
 
